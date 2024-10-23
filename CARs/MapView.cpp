@@ -3,14 +3,17 @@
 #include <QTimer>
 #include <QMouseEvent>
 #include <QList>
+#include <QOpenGLWidget>
 #include "MapView.h"
+#include "MapScene.h"
 
 MapView::MapView(QWidget* parent)
     : QGraphicsView(parent) {
-    scene = new QGraphicsScene(0, 0, 1000, 600);
+    MapScene* scene = new MapScene(0, 0, 1000, 600);
     setScene(scene);
     setRenderHint(QPainter::Antialiasing);
-    scene->setBackgroundBrush(Qt::white);
+    setViewport(new QOpenGLWidget());
+    scene->setBackgroundBrush(Qt::red);
 
     QGraphicsRectItem* item = new QGraphicsRectItem(0, 0, 100, 100);
     item->setBrush(QBrush(QColor(255, 0, 0)));
@@ -21,7 +24,7 @@ MapView::MapView(QWidget* parent)
 
     timer = new QTimer();
     QObject::connect(timer, SIGNAL(timeout()), this, SLOT(updateScene()));
-    timer->start(1);
+    timer->start(5);
 
     this->setGeometry(200, 100, 800, 500);
     this->setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
@@ -30,6 +33,7 @@ MapView::MapView(QWidget* parent)
 }
 
 void MapView::updateScene() {
+    QGraphicsScene* scene = this->scene();
 
     if (scene->items().count() < 200) {
         QGraphicsEllipseItem* ellips = new QGraphicsEllipseItem(0, 0, 20, 20);
@@ -49,11 +53,12 @@ void MapView::updateScene() {
 }
 
 void MapView::drawForeground(QPainter* painter, const QRectF& rect) {
+    QGraphicsScene* scene = this->scene();
     QRectF sceneRect = this->sceneRect();
     QRectF textRect(sceneRect.left() + 4, sceneRect.top() + 4,
         sceneRect.width() - 4, sceneRect.height() - 4);
     QString message;
-    message.setNum(this->scene->items().count());
+    message.setNum(scene->items().count());
     QFont font = painter->font();
     font.setBold(true);
     font.setPointSize(14);
@@ -69,8 +74,8 @@ void MapView::mouseDoubleClickEvent(QMouseEvent* event) {
 
     qDebug() << "Double-clicked at:" << clickPos;
 
-    if (scene) {
-        QList< QGraphicsItem* > items = scene->items(clickPos);
+    if (this->scene()) {
+        QList< QGraphicsItem* > items = this->scene()->items(clickPos);
         if (!items.isEmpty()) {
             delete items[0];
         }

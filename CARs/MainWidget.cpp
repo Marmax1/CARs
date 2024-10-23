@@ -8,28 +8,25 @@
 #include <QVBoxLayout>
 #include "MainWidget.h"
 #include "MapView.h"
+#include "StartWidget.h"
+#include "QStackedWidget"
 
 MainWidget::MainWidget(QWidget* parent)
     : QWidget(parent) {
    
-    MapView* centralWid = new MapView(this);
-    centralWidget = centralWid;
-    centralWidget->setGeometry(QGuiApplication::primaryScreen()->geometry());
 
-    QGroupBox* groupBox = new QGroupBox(tr("Group Box with Layout"), this);
+    QHBoxLayout* layout = new QHBoxLayout(this);
+    StartWidget* widget = new StartWidget(this);
+    widget->setGeometry(this->geometry());
+    layout->addWidget(widget);
 
-    QRadioButton* radio1 = new QRadioButton(tr("&Radio button 1"));
-    QRadioButton* radio2 = new QRadioButton(tr("R&adio button 2"));
-    QRadioButton* radio3 = new QRadioButton(tr("Ra&dio button 3"));
+    connect(widget, SIGNAL(changeToMap()), this, SLOT(changeToMap()));
+}
 
-    radio1->setChecked(true);
-
-    QVBoxLayout* vbox = new QVBoxLayout;
-    vbox->addWidget(radio1);
-    vbox->addWidget(radio2);
-    vbox->addWidget(radio3);
-    vbox->addStretch(1);
-    groupBox->setLayout(vbox);
-
-    groupBox->setGeometry(20, 20, 100, 100);
+void MainWidget::changeToMap() {
+    MapView* widget = new MapView(this);
+    widget->show();
+    QLayoutItem* layoutWithReplacedWidget = this->layout()->replaceWidget(this->layout()->itemAt(0)->widget(), widget);
+    delete layoutWithReplacedWidget->widget();
+    delete layoutWithReplacedWidget;
 }

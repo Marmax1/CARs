@@ -1,7 +1,7 @@
 #ifndef STARTWIDGET_H
 #define STARTWIDGET_H
 
-#include <qwidget.h>
+#include <QWidget>
 class StartWidget : public QWidget
 {
 	Q_OBJECT
@@ -9,9 +9,8 @@ class StartWidget : public QWidget
 public:
 	StartWidget(QWidget* parent = nullptr);
 
-private:
-	QLayout* defaultLayout;
-	QLayout* settingsLayout;
+signals:
+	void changeToMap();
 };
 
 #endif

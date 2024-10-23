@@ -1,27 +1,81 @@
 #include "StartWidget.h"
+#include <QApplication>
+#include <QVBoxLayout>
+#include <QPushButton>
+#include <QStackedWidget>
+#include <QLabel>
+#include <QScreen>
+#include <QSpacerItem>
 
 
 StartWidget::StartWidget(QWidget* parent)
-    : QWidget(parent) {
+    : QWidget(parent)
+{
+    // Create a widget for the button
+    QWidget* buttonWidget = new QWidget(this);
+    QVBoxLayout* buttonLayout = new QVBoxLayout(buttonWidget);
+    buttonLayout->setAlignment(Qt::AlignVCenter | Qt::AlignHCenter);
 
-    MapView* centralWid = new MapView(this);
-    centralWidget = centralWid;
-    centralWidget->setGeometry(QGuiApplication::primaryScreen()->geometry());
+    // Create buttons for buttonWidget
+    QPushButton* startButton = new QPushButton("Start", buttonWidget);
+    QPushButton* settingsButton = new QPushButton("Settings", buttonWidget);
+    QPushButton* aboutQtButton = new QPushButton("About app", buttonWidget);
+    QPushButton* exitButton = new QPushButton("Exit", buttonWidget);
+    // Setup the size
+    QSize buttonSize = QGuiApplication::primaryScreen()->availableSize() / 8;
+    startButton->setFixedSize(buttonSize);
+    settingsButton->setFixedSize(buttonSize);
+    aboutQtButton->setFixedSize(buttonSize);
+    exitButton->setFixedSize(buttonSize);
 
-    QGroupBox* groupBox = new QGroupBox(tr("Group Box with Layout"), this);
+    //Add them to the layout
+    buttonLayout->setSpacing(25);
+    buttonLayout->addWidget(startButton);
+    buttonLayout->addWidget(settingsButton);
+    buttonLayout->addWidget(aboutQtButton);
+    buttonLayout->addWidget(exitButton);
 
-    QRadioButton* radio1 = new QRadioButton(tr("&Radio button 1"));
-    QRadioButton* radio2 = new QRadioButton(tr("R&adio button 2"));
-    QRadioButton* radio3 = new QRadioButton(tr("Ra&dio button 3"));
+    // Create widget for every button
+    QWidget* settingsWidget = new QWidget(this);
+    QLabel* settingsLabel = new QLabel("Settings", settingsWidget);
+    settingsLabel->setAlignment(Qt::AlignCenter);
+    QPushButton* settingsCloseButton = new QPushButton("Close", settingsWidget);
 
-    radio1->setChecked(true);
+    QWidget* aboutQtWidget = new QWidget(this);
+    QLabel* aboutQtLabel = new QLabel("About Qt", aboutQtWidget);
+    aboutQtLabel->setAlignment(Qt::AlignCenter);
+    QPushButton* aboutQtCloseButton = new QPushButton("Close", aboutQtWidget);
 
-    QVBoxLayout* vbox = new QVBoxLayout;
-    vbox->addWidget(radio1);
-    vbox->addWidget(radio2);
-    vbox->addWidget(radio3);
-    vbox->addStretch(1);
-    groupBox->setLayout(vbox);
+    // Create stackedWidget
+    QStackedWidget* stackedWidget = new QStackedWidget(this);
+    stackedWidget->addWidget(buttonWidget);
+    stackedWidget->addWidget(settingsWidget);
+    stackedWidget->addWidget(aboutQtWidget);
 
-    groupBox->setGeometry(20, 20, 100, 100);
+    //Define layout of current widget
+    QHBoxLayout* mainLayout = new QHBoxLayout(this);
+    mainLayout->addWidget(stackedWidget);
+
+    connect(startButton, &QPushButton::clicked, this, [=]() {
+        emit changeToMap();
+        });
+
+    connect(settingsButton, &QPushButton::clicked, this, [=]() {
+        stackedWidget->setCurrentWidget(settingsWidget);
+        });
+
+    connect(aboutQtButton, &QPushButton::clicked, this, [=]() {
+        stackedWidget->setCurrentWidget(aboutQtWidget);
+        });
+
+    connect(exitButton, &QPushButton::pressed, this, &QWidget::close);
+
+    // Connect the signal of pressing the "Close" button to the slots
+    connect(settingsCloseButton, &QPushButton::pressed, this, [=]() {
+        stackedWidget->setCurrentWidget(buttonWidget);
+        });
+
+    connect(aboutQtCloseButton, &QPushButton::clicked, this, [=]() {
+        stackedWidget->setCurrentWidget(buttonWidget);
+        });
 }

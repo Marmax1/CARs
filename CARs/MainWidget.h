@@ -1,8 +1,7 @@
 #ifndef MAINWIDGET_H
 #define MAINWIDGET_H
 
-#include <QGraphicsView>
-#include <QGraphicsScene>
+#include <QWidget>
 
 class MainWidget : public QWidget {
     Q_OBJECT
@@ -10,9 +9,8 @@ class MainWidget : public QWidget {
 public:
     MainWidget(QWidget* parent = nullptr);
 
-private:
-    QWidget* centralWidget;
-    QTimer* timer;
+private slots:
+    void changeToMap();
 };
 
 #endif

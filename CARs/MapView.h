@@ -17,7 +17,6 @@ protected:
     void drawForeground(QPainter* painter, const QRectF& rect) override;
     void mouseDoubleClickEvent(QMouseEvent* event) override;
 private:
-    QGraphicsScene* scene;
     QTimer* timer;
 };
 
