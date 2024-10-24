@@ -97,8 +97,8 @@
     <ClCompile Include="MainWidget.cpp" />
     <ClCompile Include="MapScene.cpp" />
     <ClCompile Include="MapView.cpp" />
+    <ClCompile Include="Path.cpp" />
     <ClCompile Include="StartWidget.cpp" />
-    <ClCompile Include="Vehicle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MapView.h" />
@@ -110,9 +110,11 @@
     <QtMoc Include="StartWidget.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Car.h" />
+    <QtMoc Include="Car.h" />
     <QtMoc Include="MapScene.h" />
-    <ClInclude Include="Vehicle.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Path.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

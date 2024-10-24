@@ -27,6 +27,12 @@
     <Filter Include="Header Files\Entities">
       <UniqueIdentifier>{af4891fa-e7b7-4287-b9c8-a0b4959b456f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Utilites">
+      <UniqueIdentifier>{1ad0fc03-e432-4b3e-879f-4668f9b25c62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utilites">
+      <UniqueIdentifier>{ee409c14-113e-403d-aca2-d08fcbda7c00}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -47,8 +53,8 @@
     <ClCompile Include="Car.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
-    <ClCompile Include="Vehicle.cpp">
-      <Filter>Source Files\Entities</Filter>
+    <ClCompile Include="Path.cpp">
+      <Filter>Source Files\Utilites</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -64,13 +70,13 @@
     <QtMoc Include="MapScene.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="Car.h">
+      <Filter>Header Files\Entities</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Car.h">
-      <Filter>Header Files\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="Vehicle.h">
-      <Filter>Header Files\Entities</Filter>
+    <ClInclude Include="Path.h">
+      <Filter>Header Files\Utilites</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

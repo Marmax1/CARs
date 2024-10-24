@@ -7,7 +7,7 @@ int main(int argc, char* argv[]) {
     srand(time(NULL));
 
     MainWidget widget;
-    widget.show();
+    widget.showMaximized();
 
     return app.exec();
 }

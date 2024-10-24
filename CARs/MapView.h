@@ -10,14 +10,9 @@ class MapView : public QGraphicsView {
 public:
     MapView(QWidget* parent = nullptr);
 
-private slots:
-    void updateScene();
-
 protected:
     void drawForeground(QPainter* painter, const QRectF& rect) override;
     void mouseDoubleClickEvent(QMouseEvent* event) override;
-private:
-    QTimer* timer;
 };
 
 #endif
