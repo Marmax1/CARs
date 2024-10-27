@@ -5,6 +5,9 @@
 #include <QTimer>
 #include "Car.h"
 #include "Path.h"
+#include "Road.h"
+#include "Intersection.h"
+#include "GenPoint.h"
 
 class MapScene : public QGraphicsScene {
     Q_OBJECT

@@ -93,11 +93,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Car.cpp" />
+    <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="GenPoint.cpp" />
+    <ClCompile Include="Intersection.cpp" />
+    <ClCompile Include="Lane.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainWidget.cpp" />
     <ClCompile Include="MapScene.cpp" />
     <ClCompile Include="MapView.cpp" />
+    <ClCompile Include="NodalPoint.cpp" />
     <ClCompile Include="Path.cpp" />
+    <ClCompile Include="Road.cpp" />
+    <ClCompile Include="RoadNetwork.cpp" />
+    <ClCompile Include="RoadSlot.cpp" />
     <ClCompile Include="StartWidget.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -114,7 +122,26 @@
     <QtMoc Include="MapScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Controller.h" />
+    <ClInclude Include="GenPoint.h" />
+    <ClInclude Include="Intersection.h" />
+    <ClInclude Include="Lane.h" />
+    <ClInclude Include="NodalPoint.h" />
     <ClInclude Include="Path.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Road.h" />
+    <ClInclude Include="RoadNetwork.h" />
+    <ClInclude Include="RoadSlot.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\..\Users\Maxim\Downloads\Asset 1.png" />
+    <Image Include="..\..\..\..\..\Users\Maxim\Downloads\Asset 2.png" />
+    <Image Include="..\..\..\..\..\Users\Maxim\Downloads\Asset 3.png" />
+    <Image Include="..\..\..\..\..\Users\Maxim\Downloads\Asset 4.png" />
+    <Image Include="..\..\..\..\..\Users\Maxim\Downloads\Asset 5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CARs.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

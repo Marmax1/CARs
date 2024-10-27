@@ -33,6 +33,24 @@
     <Filter Include="Header Files\Utilites">
       <UniqueIdentifier>{ee409c14-113e-403d-aca2-d08fcbda7c00}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Images">
+      <UniqueIdentifier>{2dcda868-f6ec-4777-9586-34ba90d163b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Images\Cars">
+      <UniqueIdentifier>{8bcdb7b9-a414-46c6-a1b4-520a38ad225c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\RoadNetwork">
+      <UniqueIdentifier>{3fb2a5de-5b77-463d-9820-baab943aa84d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\RoadNetwork">
+      <UniqueIdentifier>{03205a4a-5c20-42fe-8650-a6ae580144e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\RoadNetwork\Nodes">
+      <UniqueIdentifier>{74fa8c25-ba83-480b-8506-d1fbf1410771}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\RoadNetwork\Nodes">
+      <UniqueIdentifier>{c644bfe5-6989-4e29-bd3b-d960569b0eb1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -56,6 +74,30 @@
     <ClCompile Include="Path.cpp">
       <Filter>Source Files\Utilites</Filter>
     </ClCompile>
+    <ClCompile Include="Road.cpp">
+      <Filter>Source Files\Entities\RoadNetwork</Filter>
+    </ClCompile>
+    <ClCompile Include="NodalPoint.cpp">
+      <Filter>Source Files\Entities\RoadNetwork\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Intersection.cpp">
+      <Filter>Source Files\Entities\RoadNetwork\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="GenPoint.cpp">
+      <Filter>Source Files\Entities\RoadNetwork\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="RoadSlot.cpp">
+      <Filter>Source Files\Utilites</Filter>
+    </ClCompile>
+    <ClCompile Include="Lane.cpp">
+      <Filter>Source Files\Entities\RoadNetwork</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller.cpp">
+      <Filter>Source Files\Utilites</Filter>
+    </ClCompile>
+    <ClCompile Include="RoadNetwork.cpp">
+      <Filter>Source Files\Entities\RoadNetwork</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MapView.h">
@@ -78,5 +120,54 @@
     <ClInclude Include="Path.h">
       <Filter>Header Files\Utilites</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Intersection.h">
+      <Filter>Header Files\Entities\RoadNetwork\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="NodalPoint.h">
+      <Filter>Header Files\Entities\RoadNetwork\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="Road.h">
+      <Filter>Header Files\Entities\RoadNetwork</Filter>
+    </ClInclude>
+    <ClInclude Include="GenPoint.h">
+      <Filter>Header Files\Entities\RoadNetwork\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="RoadSlot.h">
+      <Filter>Header Files\Utilites</Filter>
+    </ClInclude>
+    <ClInclude Include="Lane.h">
+      <Filter>Header Files\Entities\RoadNetwork</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller.h">
+      <Filter>Header Files\Utilites</Filter>
+    </ClInclude>
+    <ClInclude Include="RoadNetwork.h">
+      <Filter>Header Files\Entities\RoadNetwork</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\..\Users\Maxim\Downloads\Asset 1.png">
+      <Filter>Resource Files\Images\Cars</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\Users\Maxim\Downloads\Asset 2.png">
+      <Filter>Resource Files\Images\Cars</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\Users\Maxim\Downloads\Asset 3.png">
+      <Filter>Resource Files\Images\Cars</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\Users\Maxim\Downloads\Asset 4.png">
+      <Filter>Resource Files\Images\Cars</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\Users\Maxim\Downloads\Asset 5.png">
+      <Filter>Resource Files\Images\Cars</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CARs.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

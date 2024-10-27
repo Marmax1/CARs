@@ -8,7 +8,6 @@ Car::Car(qreal maxSpeed, const QString fileName) : QGraphicsPixmapItem(QPixmap(f
 	path = QList<QPointF>();
 
 	setFlag(ItemIsFocusable);
-	setScale(0.1);
 }
 
 void Car::setPath(const QList<QPointF>& path) {
